@@ -15,11 +15,9 @@ public class Application {
     static double total = 0;
 
     public static void main ( String[] args ) throws JSONException {
+        groceryShop.add(carttotal);
         drivenInterface.Show ( groceryShop );
-
-
     }
-
     public boolean handle ( int option, GroceryShop groceryShop )  {
         Scanner scanner = new Scanner ( System.in );
         switch (option) {
@@ -39,8 +37,6 @@ public class Application {
                 rice.setPrice_per_kg ( price );
                 rice.setTotalPriceQuantity ( totalPriceQuantity );
                 groceryShop.add ( rice );
-//                carttotal.setCartTotal(total);
-//                groceryShop.add(carttotal);
             }
             case 2 -> {
                 Pulses pulses = new Pulses ();
@@ -58,9 +54,6 @@ public class Application {
                 pulses.setPrice_per_kg ( price );
                 pulses.setTotalPriceQuantity ( totalPriceQuantity );
                 groceryShop.add ( pulses );
-//                carttotal.setCartTotal(total);
-//                groceryShop.add(carttotal);
-
             }
             case 3 -> {
                 Wheat wheat = new Wheat ();
@@ -78,25 +71,16 @@ public class Application {
                 wheat.setPrice_per_kg ( price );
                 wheat.setTotalPriceQuantity ( totalPriceQuantity );
                 groceryShop.add ( wheat );
-//                carttotal.setCartTotal(total);
-//                groceryShop.add(carttotal);
             }
             case 4 -> {
                 drivenInterface.display ( groceryShop.getGrainsList () );
-//                groceryShop.add(carttotal);
-//                System.out.println("Your Saved Contacts List Below ");
-//                var json= gson.toJson(groceryShop);
-//                System.out.println(json);
             }
             case 5 -> {
                 return false;
             }
             default -> System.out.println ( "\nplz enter correct choice......." );
-
         }
         carttotal.setCartTotal(total);
-        groceryShop.add(carttotal);
-
         return true;
     }
 }
